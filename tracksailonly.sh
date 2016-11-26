@@ -13,10 +13,12 @@ start_tracksail()
 kill_tracksail()
 {
     pid=`ps aux | grep "java -Djava.security.policy=../policy Server" | grep -v "grep" | awk '{print $2}'`
-    if [ "$pid" -gt "0" ] ; then
-        kill $pid
-    fi
-
+    echo $pid
+    for p in $pid;
+    do
+        echo $p
+        kill -9 $p
+    done
 }
 
 
